@@ -6,5 +6,7 @@
 @Project : banner_generator
 """
 
+
 class Spider(object):
-    pass
+    def start(self):
+        pass

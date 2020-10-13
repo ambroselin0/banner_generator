@@ -1,10 +1,10 @@
 """
-@Time : 10/8/2020 20:06
+@Time : 10/9/2020 11:08
 @Author : ambrose_lin
 @Email : ambroselin001@outlook.com
 @File : __init__.py
 @Project : banner_generator
 """
 
-from .config import get_config
-from .db import MongoConnection
+from .sspai_spider import SspaiSpider
+from .spider import Spider
