@@ -32,12 +32,15 @@ class DataWrapper(object):
         data_id = article_info['_id']
         title = article_info['title']
         logging.info(title)
-        img = self.mongo_connection.get_one_img({'_id': data_id})
-        img = self.resize_img(img)
-        # img.show()
-        # img = ImageTk.PhotoImage(img)
-        self.img = img
-        self.data_id = data_id
+        try:
+            img = self.mongo_connection.get_one_img({'_id': data_id})
+            img = self.resize_img(img)
+            # img.show()
+            # img = ImageTk.PhotoImage(img)
+            self.img = img
+            self.data_id = data_id
+        except:
+            logging.exception('image is truncted')
 
     def resize_img(self, img: Image.Image):
         width, height = img.size

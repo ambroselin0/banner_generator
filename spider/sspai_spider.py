@@ -179,5 +179,5 @@ class SspaiSpider(Spider):
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, format='> %(levelname)s < %(message)s')
     sspai_spider = SspaiSpider()
-    # sspai_spider.initial()
+    sspai_spider.initial()
     sspai_spider.start()
