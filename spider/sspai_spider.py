@@ -12,7 +12,7 @@ import sys
 sys.path.append(os.path.dirname(__file__) + os.sep + '../')
 
 from spider import Spider
-from utils import get_config, MongoConnection
+from utils import get_config, get_db_connection
 import time
 import numpy as np
 import requests
@@ -23,10 +23,7 @@ import multiprocessing
 
 class SspaiSpider(Spider):
     def __init__(self):
-        config_path = '../config.ini'
-        self.db_name = get_config(config_path, 'sspai', 'db_name')
-        collection_name = get_config(config_path, 'sspai', 'collection_name')
-        self.mongo_connection = MongoConnection(self.db_name, collection_name)
+        self.db_connection = get_db_connection()
         self.header = {
             'Authorization': 'cdn.sspai.com',
             'Host': 'cdn.sspai.com'

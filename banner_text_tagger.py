@@ -10,7 +10,7 @@ import tkinter as tk
 
 from PIL import ImageTk, Image
 
-from utils import MongoConnection, get_config
+from utils import DBConnection, get_config
 
 
 class DataWrapper(object):
@@ -18,7 +18,7 @@ class DataWrapper(object):
         config_path = './config.ini'
         self.db_name = get_config(config_path, db_name, 'db_name')
         self.collection_name = get_config(config_path, db_name, 'collection_name')
-        self.mongo_connection = MongoConnection(self.db_name, self.collection_name)
+        self.mongo_connection = DBConnection(self.db_name, self.collection_name)
         self.target_width = 1080
 
         self.img = None

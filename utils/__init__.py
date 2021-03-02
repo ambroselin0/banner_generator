@@ -7,5 +7,5 @@
 """
 
 from .config import get_config
-from .db import MongoConnection
+from .db import get_db_connection
 from .data import load_data, save_data

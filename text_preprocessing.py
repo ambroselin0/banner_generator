@@ -10,7 +10,7 @@ import re
 import jieba
 from tensorflow.keras.preprocessing.text import Tokenizer
 
-from utils import MongoConnection, get_config, load_data, save_data
+from utils import DBConnection, get_config, load_data, save_data
 
 
 # jieba.enable_parallel(16)
@@ -20,7 +20,7 @@ class TextTokenizer(object):
     def __init__(self, db_name='sspai', config_path='./config.ini', is_fit=False):
         self.db_name = get_config(config_path, db_name, 'db_name')
         self.collection_name = get_config(config_path, db_name, 'collection_name')
-        self.mongo_connection = MongoConnection(self.db_name, self.collection_name)
+        self.mongo_connection = DBConnection(self.db_name, self.collection_name)
         if is_fit == True:
             self.tokenizer = Tokenizer(num_words=100000, oov_token='OOV', lower=True)
         else:
